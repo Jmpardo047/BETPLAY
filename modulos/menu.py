@@ -6,8 +6,17 @@ titulo = '''
     *****************************
 '''
 def MenuPrincipal()->int:
+    lstOpciones = [1,2,3,4,5,6,7]
     os.system('cls')
     print(titulo)
-    print(opciones)
-    n = int(input(").."))
-    return n
+    try:
+        print(opciones)
+        n = int(input(").."))
+        if (n not in lstOpciones):
+            MenuPrincipal()
+    except ValueError:
+        print('dato invalido')
+        os.system('pause')
+        MenuPrincipal()
+    else:
+        return n
